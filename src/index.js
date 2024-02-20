@@ -73,29 +73,70 @@ const inventory = [
 //✅ Review objects?
 
 //✅ 1. Create hello world using REGULAR functions
-function helloWorld(){
-  return
+function helloWorld(name){
+  return "Hello World"
 }
 //✅ 2. For Easley's bookstore, create formatPrice(price)
+function formatPrice(price){
+  price.toFixed(2)
+  return "$"+ price.toFixed(2)
+}
 
 //✅ 3. Make an arrow function version of formatPrice
+const formatPriceArrow = (price) => {
+  return `$${price.toFixed(2)}`
+}
 
 //✅ 4. WE DO: create a blurb() function that accepts a book as an argument and logs a message in the following format:
 //'Eloquent JavaScript: A Modern Introduction to Programming by Marjin Haverbeke is on sale for $10.00'
 
+const blurb = (book) => {
+  return (
+    `Eloquent JavaScript: A Modern Introduction to Programming by Marjin Haverbeke is on sale for ${formatPrice(book.price)} `
+  )
+}
+
+
 //✅ 5. Call formatPrice on an array of prices
+ 
 
 //✅ 5a. Create an array
+const prices =[1,3,66,84,45,56]
 
 //✅ 5b. Use a for loop to iterate over prices
-
+for( let  i = 0;  i<prices.length; i++){
+  console.log(` i is ${i} , price is ${prices}`)
+ }
 //✅ 5c. Use .forEach to iterate over prices
+let forEachReturn = prices.forEach((el,i) =>{
+  console.log( `i is ${i} the actual element, or prices[i] is ${el}`)
+})
 
 //✅ 5d. Use .map to iterate over prices
+//
+
+let mapList = prices.map( (el,i)=>{
+  return `i is ${i} and prices[i] is ${el}`
+})
 
 //✅ 5e. using .map, for each book in inventory, return blurb(book)
 //output: ['Eloquent JavaScript: A Modern Introduction to Programming is on sale for $10.00', ...]
 
+let listOfStrings = inventory.map((el)=>{
+  return blurb(el)
+})
+
+
 //✅ 6. Create a version of myMap that uses a for loop to mimic .map
 //input: array, callback function
 //output: a new array
+
+function myMap(list){
+  
+  let newMap=[]
+  for(let i=0 ; i<list.length(); i++){
+    newMap.push( newMap.push(list[i]) )
+  }
+
+  return newMap
+}
